@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 export interface CountryGroupDataType {
   'Alpha-2 code': string;
-  'Alpha-3 code-1': string;
+  'Alpha-3 code': string;
   'Country or Area': string;
   'Development classification': string;
   'Group 1': string;

@@ -94,7 +94,7 @@ export const UnivariateMap = (props: Props) => {
         <g ref={mapG}>
           {
             (World as any).features.map((d: any, i: number) => {
-              const index = data.findIndex((el: any) => el['Alpha-3 code-1'] === d.properties.ISO3);
+              const index = data.findIndex((el: any) => el['Alpha-3 code'] === d.properties.ISO3);
               const regionOpacity = selectedRegions === 'All' || selectedRegions.indexOf(d.region) !== -1;
               const countryOpacity = selectedCountries.length === 0 || selectedCountries !== d['Country or Area'];
 
@@ -149,7 +149,7 @@ export const UnivariateMap = (props: Props) => {
           }
           {
             data.map((d, i: number) => {
-              const index = (World as any).features.findIndex((el: any) => d['Alpha-3 code-1'] === el.properties.ISO3);
+              const index = (World as any).features.findIndex((el: any) => d['Alpha-3 code'] === el.properties.ISO3);
               const indicatorIndex = d.indicators.findIndex((el) => xIndicatorMetaData.DataKey === el.indicator);
               const val = indicatorIndex === -1 ? undefined : d.indicators[indicatorIndex].value;
               const color = val !== undefined ? colorScale(val) : '#f5f9fe';
@@ -247,7 +247,7 @@ export const UnivariateMap = (props: Props) => {
           }
           {
             hoverData
-              ? (World as any).features.filter((d: any) => d.properties.ISO3 === data[data.findIndex((el: DataType) => el['Country or Area'] === hoverData?.country)]['Alpha-3 code-1']).map((d: any, i: number) => (
+              ? (World as any).features.filter((d: any) => d.properties.ISO3 === data[data.findIndex((el: DataType) => el['Country or Area'] === hoverData?.country)]['Alpha-3 code']).map((d: any, i: number) => (
                 <G
                   opacity={!selectedColor ? 1 : 0}
                   key={i}
